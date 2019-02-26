@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=STRENGTH
+Comment=STRENGTH P2P Cryptocurrency
+Comment[fr]=STRENGTH, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=STRENGTH, eşten eşe kriptografik sanal para birimi
+Exec=strength-qt %u
+Terminal=false
+Type=Application
+Icon=strength128
+MimeType=x-scheme-handler/strength;
+Categories=Office;Finance;

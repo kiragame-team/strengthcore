@@ -1,0 +1,20 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/strength_bg.qm</file>
+        <file alias="de">locale/strength_de.qm</file>
+        <file alias="en">locale/strength_en.qm</file>
+        <file alias="es">locale/strength_es.qm</file>
+        <file alias="fi">locale/strength_fi.qm</file>
+        <file alias="fr">locale/strength_fr.qm</file>
+        <file alias="it">locale/strength_it.qm</file>
+        <file alias="ja">locale/strength_ja.qm</file>
+        <file alias="pl">locale/strength_pl.qm</file>
+        <file alias="pt">locale/strength_pt.qm</file>
+        <file alias="ru">locale/strength_ru.qm</file>
+        <file alias="sk">locale/strength_sk.qm</file>
+        <file alias="sv">locale/strength_sv.qm</file>
+        <file alias="vi">locale/strength_vi.qm</file>
+        <file alias="zh_CN">locale/strength_zh_CN.qm</file>
+        <file alias="zh_TW">locale/strength_zh_TW.qm</file>
+    </qresource>
+</RCC>

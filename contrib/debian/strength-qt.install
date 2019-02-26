@@ -1,0 +1,6 @@
+usr/local/bin/strength-qt usr/bin
+share/pixmaps/strength32.xpm usr/share/pixmaps
+share/pixmaps/strength16.xpm usr/share/pixmaps
+share/pixmaps/strength128.png usr/share/pixmaps
+debian/strength-qt.desktop usr/share/applications
+debian/strength-qt.protocol usr/share/kde4/services/

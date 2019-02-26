@@ -1,0 +1,22 @@
+[Unit]
+Description=STRENGTH's distributed currency daemon
+After=network.target
+
+[Service]
+User=strengthcore
+Group=strengthcore
+
+Type=forking
+PIDFile=/var/lib/strengthd/strengthd.pid
+ExecStart=/usr/bin/strengthd -daemon -pid=/var/lib/strengthd/strengthd.pid \
+-conf=/etc/strengthcore/strength.conf -datadir=/var/lib/strengthd -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

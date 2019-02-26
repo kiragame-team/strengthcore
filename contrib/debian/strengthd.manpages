@@ -1,0 +1,3 @@
+debian/manpages/strengthd.1
+debian/manpages/strength.conf.5
+debian/manpages/strength-cli.1

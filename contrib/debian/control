@@ -1,0 +1,68 @@
+Source: strength
+Section: utils
+Priority: optional
+Maintainer: Holger Schinzel <holger@mixair.info>
+Uploaders: Holger Schinzel <holger@mixair.info>
+Build-Depends: debhelper,
+ devscripts,
+ automake,
+ libtool,
+ bash-completion,
+ libdb4.8++-dev,
+ libssl-dev,
+ pkg-config,
+ libevent-dev,
+ libboost-system1.48-dev | libboost-system-dev (>> 1.35),
+ libboost-filesystem1.48-dev | libboost-filesystem-dev (>> 1.35),
+ libboost-program-options1.48-dev | libboost-program-options-dev (>> 1.35),
+ libboost-thread1.48-dev | libboost-thread-dev (>> 1.35),
+ libboost-test1.48-dev | libboost-test-dev (>> 1.35),
+ libboost-chrono1.48-dev | libboost-chrono-dev (>> 1.35),
+ qt4-qmake,
+ libqt4-dev,
+ libqrencode-dev,
+ libprotobuf-dev, protobuf-compiler,
+ python
+Standards-Version: 1.0.0
+Homepage: http://kiragame-team.github.io/
+Vcs-Git: git://github.com/kiragame-team/strengthcore.git
+Vcs-Browser: https://github.com/kiragame-team/strengthcore
+
+Package: strengthd
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer network based digital currency - daemon
+ STRENGTH is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. STRENGTH uses peer-to-peer
+ technology to operate with no central authority: managing transactions
+ and issuing money are carried out collectively by the network. STRENGTH Core
+ is the name of the open source software which enables the use of this currency.
+ .
+ This package provides the daemon, strengthd, and the CLI tool
+ strength-cli to interact with the daemon.
+
+Package: strength-qt
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer network based digital currency - Qt GUI
+ STRENGTH is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. STRENGTH uses peer-to-peer
+ technology to operate with no central authority: managing transactions
+ and issuing money are carried out collectively by the network. STRENGTH Core
+ is the name of the open source software which enables the use of this currency.
+ .
+ This package provides STRENGTH-Qt, a GUI for STRENGTH based on Qt.
+
+Package: strength-tx
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer digital currency - standalone transaction tool
+ STRENGTH is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. STRENGTH uses peer-to-peer
+ technology to operate with no central authority: managing transactions
+ and issuing money are carried out collectively by the network. STRENGTH Core
+ is the name of the open source software which enables the use of this currency.
+ .
+ This package provides strength-tx, a command-line transaction creation
+ tool which can be used without a strength daemon.  Some means of
+ exchanging minimal transaction data with peers is still required.
