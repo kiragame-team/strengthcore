@@ -1238,9 +1238,7 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
         dDiff = ConvertBitsToDouble(nPrevBits);
     }
 	
-	
-
-    CAmount nSubsidy = 4 * COIN;
+    CAmount nSubsidy;
 
     if (Params().NetworkIDString() == CBaseChainParams::TESTNET) {
         if (nPrevHeight < 200) return 250000 * COIN;
@@ -1257,16 +1255,33 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
           nSubsidy -= nSubsidy/20;
       }
 
-    } else if (nPrevHeight >= 2300) {
+    } else if (nPrevHeight <= 6000 && nPrevHeight >=2300) {
       nSubsidy = 5 * COIN;
+    } else if (nPrevHeight >=6001) {
+		if(dDiff < 1000 && dDiff > 0) {
+			nSubsidy = 5 * COIN;
+		} else if(dDiff < 2500 && dDiff > 1000) {
+			nSubsidy = 10 * COIN;
+		} else if(dDiff < 5000 && dDiff > 2500) {
+			nSubsidy = 15 * COIN;
+		} else if(dDiff < 9000 && dDiff > 5000) {
+			nSubsidy = 20 * COIN;
+		} else if(dDiff < 15000 && dDiff > 9000) {
+			nSubsidy = 25 * COIN;
+		} else if(dDiff < 25000 && dDiff > 15000) {
+			nSubsidy = 30 * COIN;
+		} else if(dDiff < 45000 && dDiff > 25000) {
+			nSubsidy = 35 * COIN;
+		} else if(dDiff < 80000 && dDiff > 45000) {
+			nSubsidy = 40 * COIN;
+		} else if(dDiff < 160000 && dDiff > 80000) {
+			nSubsidy = 45 * COIN;
+		} else if(dDiff > 160000) {
+			nSubsidy = 50 * COIN;
+		}
+	}
 
-      for (int i = 86400; i <= nPrevHeight; i += 86400) {
-          nSubsidy -= nSubsidy/20;
-      }
-    }
-
-
-	LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidy);
+	//LogPrintf("height %u diff %4.2f reward %d\n", nPrevHeight, dDiff, nSubsidy);
 	
     return nSubsidy;
 }
@@ -1274,7 +1289,12 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
     CAmount ret;
-    ret = blockValue * 0.5;
+	if(nHeight <= 6000 && > 0) {
+		ret = blockValue * 0.5;
+	} else if(nHeight >= 6001) {
+		ret = blockValue * 0.4;
+	}
+    
     return ret;
 }
 
