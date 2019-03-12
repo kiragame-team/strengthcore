@@ -254,7 +254,7 @@ public:
     /// Is the input associated with collateral public key? (and there is 1000 STRENGTH - checking if valid masternode)
     bool IsInputAssociatedWithPubkey();
 
-    bool IsValidNetAddr();
+    //bool IsValidNetAddr();
     static bool IsValidNetAddr(CService addrIn);
 
     void IncreasePoSeBanScore() { if(nPoSeBanScore < MASTERNODE_POSE_BAN_MAX_SCORE) nPoSeBanScore++; }
