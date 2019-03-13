@@ -417,8 +417,8 @@ bool CMasternodeBroadcast::Create(const COutPoint& outpoint, const CService& ser
 
     mnbRet = CMasternodeBroadcast(service, outpoint, pubKeyCollateralAddressNew, pubKeyMasternodeNew, PROTOCOL_VERSION);
 
-    if (!mnbRet.IsValidNetAddr())
-        return Log(strprintf("Invalid IP address, masternode=%s", outpoint.ToStringShort()));
+    ///if (!mnbRet.IsValidNetAddr())
+    //    return Log(strprintf("Invalid IP address, masternode=%s", outpoint.ToStringShort()));
 
     mnbRet.lastPing = mnp;
     if (!mnbRet.Sign(keyCollateralAddressNew))
