@@ -432,11 +432,11 @@ bool CMasternodeBroadcast::SimpleCheck(int& nDos)
     nDos = 0;
 
     // make sure addr is valid
-    if(!IsValidNetAddr()) {
-        LogPrintf("CMasternodeBroadcast::SimpleCheck -- Invalid addr, rejected: masternode=%s  addr=%s\n",
-                    vin.prevout.ToStringShort(), addr.ToString());
-        return false;
-    }
+    //if(!IsValidNetAddr()) {
+    //    LogPrintf("CMasternodeBroadcast::SimpleCheck -- Invalid addr, rejected: masternode=%s  addr=%s\n",
+    //                vin.prevout.ToStringShort(), addr.ToString());
+    //    return false;
+    //}
 
     // make sure signature isn't in the future (past is OK)
     if (sigTime > GetAdjustedTime() + 60 * 60) {
