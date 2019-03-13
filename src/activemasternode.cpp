@@ -153,15 +153,15 @@ void CActiveMasternode::ManageStateInitial(CConnman& connman)
     }
 
     // First try to find whatever local address is specified by externalip option
-    bool fFoundLocal = GetLocal(service) && CMasternode::IsValidNetAddr(service);
+    bool fFoundLocal = GetLocal(service);
     if(!fFoundLocal) {
         bool empty = true;
         // If we have some peers, let's try to find our local address from one of them
-        connman.ForEachNodeContinueIf(CConnman::AllNodes, [&fFoundLocal, &empty, this](CNode* pnode) {
-            empty = false;
-            if (pnode->addr.IsIPv4())
-                fFoundLocal = GetLocal(service, &pnode->addr) && CMasternode::IsValidNetAddr(service);
-            return !fFoundLocal;
+        //connman.ForEachNodeContinueIf(CConnman::AllNodes, [&fFoundLocal, &empty, this](CNode* pnode) {
+        //    empty = false;
+        //    if (pnode->addr.IsIPv4())
+        //        fFoundLocal = GetLocal(service, &pnode->addr) && CMasternode::IsValidNetAddr(service);
+        //    return !fFoundLocal;
         });
         // nothing and no live connections, can't do anything for now
         if (empty) {
