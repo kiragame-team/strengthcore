@@ -162,7 +162,7 @@ void CActiveMasternode::ManageStateInitial(CConnman& connman)
         //    if (pnode->addr.IsIPv4())
         //        fFoundLocal = GetLocal(service, &pnode->addr) && CMasternode::IsValidNetAddr(service);
         //    return !fFoundLocal;
-        });
+        //});
         // nothing and no live connections, can't do anything for now
         if (empty) {
             nState = ACTIVE_MASTERNODE_NOT_CAPABLE;
@@ -172,12 +172,12 @@ void CActiveMasternode::ManageStateInitial(CConnman& connman)
         }
     }
 
-    if(!fFoundLocal) {
-        nState = ACTIVE_MASTERNODE_NOT_CAPABLE;
-        strNotCapableReason = "Can't detect valid external address. Please consider using the externalip configuration option if problem persists. Make sure to use IPv4 address only.";
-        LogPrintf("CActiveMasternode::ManageStateInitial -- %s: %s\n", GetStateString(), strNotCapableReason);
-        return;
-    }
+    //if(!fFoundLocal) {
+    //    nState = ACTIVE_MASTERNODE_NOT_CAPABLE;
+    //    strNotCapableReason = "Can't detect valid external address. Please consider using the externalip configuration option if problem persists. Make sure to use IPv4 address only.";
+    //    LogPrintf("CActiveMasternode::ManageStateInitial -- %s: %s\n", GetStateString(), strNotCapableReason);
+    //    return;
+    //}
 
     int mainnetDefaultPort = Params(CBaseChainParams::MAIN).GetDefaultPort();
     if(Params().NetworkIDString() == CBaseChainParams::MAIN) {
